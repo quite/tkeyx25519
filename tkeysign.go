@@ -1,13 +1,13 @@
 // Copyright (C) 2022, 2023 - Tillitis AB
 // SPDX-License-Identifier: GPL-2.0-only
 
-// Package tk1sign provides a connection to the ed25519 signer app
+// Package tkeysign provides a connection to the ed25519 signer app
 // running on the TKey. You're expected to pass an existing connection
 // to it, so use it like this:
 //
 //	tk := tkeyclient.New()
 //	err := tk.Connect(port)
-//	signer := tk1sign.New(tk)
+//	signer := tkeysign.New(tk)
 //
 // Then use it like this to get the public key of the TKey:
 //
@@ -16,7 +16,7 @@
 // And like this to sign a message:
 //
 //	signature, err := signer.Sign(message)
-package tk1sign
+package tkeysign
 
 import (
 	"fmt"
