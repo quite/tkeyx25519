@@ -1,4 +1,4 @@
-[![ci](https://github.com/tillitis/tkeysign/actions/workflows/ci.yaml/badge.svg?branch=main&event=push)](https://github.com/tillitis/tkeysign/actions/workflows/ci.yaml)
+[![ci](https://github.com/tillitis/tkeysign/actions/workflows/ci.yaml/badge.svg?branch=main&event=push)](https://github.com/tillitis/tkeysign/actions/workflows/ci.yaml) [![Go Reference](https://pkg.go.dev/badge/github.com/tillitis/tkeysign.svg)](https://pkg.go.dev/github.com/tillitis/tkeysign)
 
 # Tillitis TKey Sign package
 
@@ -11,6 +11,8 @@ for `tkeysign` for details on how to call the functions.
 
 See [apps repo](https://github.com/tillitis/tillitis-key1-apps/) for
 example client and device applications, including `signer`.
+
+Release notes in [RELEASE.md](RELEASE.md).
 
 ## Licenses and SPDX tags
 
