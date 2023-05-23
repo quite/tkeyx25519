@@ -97,6 +97,9 @@ func (x X25519) GetAppNameVersion() (*tkeyclient.NameVersion, error) {
 	return nameVer, nil
 }
 
+// GetPubKey talks to the device app running on the TKey, getting a
+// X25519 public key. This public key is derived from a secret =
+// blake2s(domain, userSecret, TKey CDI).
 func (x X25519) GetPubKey(domain [78]byte, userSecret [16]byte) ([]byte, error) {
 	id := 2
 	tx, err := tkeyclient.NewFrameBuf(cmdGetPubKey, id)
@@ -128,6 +131,9 @@ func (x X25519) GetPubKey(domain [78]byte, userSecret [16]byte) ([]byte, error) 
 	return rx[3 : 3+32], nil
 }
 
+// GetPubKey talks to the device app running on the TKey, establishing
+// a shared secret between theirPubKey and a TKey public key. This
+// public key is derived as for GetPubKey.
 func (x X25519) ComputeShared(domain [78]byte, userSecret [16]byte, theirPubKey [32]byte) ([]byte, error) {
 	id := 2
 	tx, err := tkeyclient.NewFrameBuf(cmdComputeShared, id)
