@@ -100,8 +100,8 @@ func (x X25519) GetAppNameVersion() (*tkeyclient.NameVersion, error) {
 // GetPubKey talks to the device app running on the TKey, getting a
 // X25519 public key. This public key is derived from a secret =
 // blake2s(domain, userSecret, require_touch, TKey CDI). requireTouch
-// is part of the secret, but only the ComputeShared command actually
-// requests it.
+// is always part of the secret, but only the ComputeShared command
+// actually requests it.
 func (x X25519) GetPubKey(domain [78]byte, userSecret [16]byte, requireTouch bool) ([]byte, error) {
 	id := 2
 	tx, err := tkeyclient.NewFrameBuf(cmdGetPubKey, id)
@@ -140,8 +140,9 @@ func (x X25519) GetPubKey(domain [78]byte, userSecret [16]byte, requireTouch boo
 
 // GetPubKey talks to the device app running on the TKey, establishing
 // a shared secret between theirPubKey and a TKey public key. This
-// public key is derived as for GetPubKey. requireTouch is part of the
-// secret, and only this ComputeShared command actually requests it.
+// public key is derived as for GetPubKey. requireTouch is always part
+// of the secret, and only this ComputeShared command actually
+// requests it.
 func (x X25519) ComputeShared(domain [78]byte, userSecret [16]byte, requireTouch bool, theirPubKey [32]byte) ([]byte, error) {
 	id := 2
 	tx, err := tkeyclient.NewFrameBuf(cmdComputeShared, id)
