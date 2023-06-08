@@ -3,9 +3,9 @@ all:
 
 .PHONY: lint
 lint:
-	$(MAKE) -C gotools
+	$(MAKE) -C gotools golangci-lint
 	./gotools/golangci-lint run
 
 .PHONY: spdx
 spdx:
-	./tools/spdx-ensure 
+	./tools/spdx-ensure
