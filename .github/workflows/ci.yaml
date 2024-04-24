@@ -4,7 +4,7 @@ name: ci
 on:
   push:
     branches:
-      - 'main'
+      - '*'
   pull_request: {}
   # allow manual runs:
   workflow_dispatch: {}
